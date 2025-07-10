@@ -1,0 +1,5 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontext/vscode-mcp/main/schemas/mcp.schema.json",
+  "projectType": "mcp-server",
+  "description": "MCP configuration for this project. Add or update fields as needed."
+}

@@ -1,0 +1,4 @@
+{
+    "github.copilot.chat.edits.codesearch.enabled": true,
+    "github.copilot.chat.completionContext.typescript.mode": "on"
+}
