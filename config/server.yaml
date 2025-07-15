@@ -1,0 +1,63 @@
+# Global MCP Server Configuration
+# This is the main configuration file for the Global MCP Server
+
+# Server settings
+port: 3000
+host: "0.0.0.0"
+
+# GitHub integration settings
+github:
+  # GitHub API token (can be overridden by GITHUB_TOKEN env var)
+  token: "${GITHUB_TOKEN}"
+  # GitHub API URL
+  apiUrl: "https://api.github.com"
+  # Webhook secret for GitHub webhooks (optional)
+  webhookSecret: "${GITHUB_WEBHOOK_SECRET}"
+
+# MCP (Model Context Protocol) settings
+mcp:
+  # Protocol version
+  version: "1.0.0"
+  # Request timeout in milliseconds
+  timeout: 30000
+  # Number of retries for failed requests
+  retries: 3
+  # Configured MCP servers
+  servers:
+    filesystem:
+      type: "stdio"
+      command: "npx"
+      args: ["-y", "@modelcontextprotocol/server-filesystem", "/workspace"]
+      env:
+        NODE_ENV: "production"
+    github:
+      type: "stdio"
+      command: "npx"
+      args: ["-y", "@modelcontextprotocol/server-github"]
+      env:
+        GITHUB_PERSONAL_ACCESS_TOKEN: "${GITHUB_TOKEN}"
+
+# Logging configuration
+logging:
+  # Log level: debug, info, warn, error
+  level: "info"
+  # Log format: json, simple
+  format: "json"
+  # Optional log file path
+  file: "/app/logs/server.log"
+
+# Persona management settings
+personas:
+  # Directory containing persona definitions
+  directory: "/app/config/personas"
+  # Default persona to use when none specified
+  defaultPersona: "default"
+
+# Plugin system settings
+plugins:
+  # Directory containing plugins
+  directory: "/app/plugins"
+  # List of enabled plugins
+  enabled:
+    - "github-enhanced"
+    - "persona-manager"

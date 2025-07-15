@@ -1,5 +1,18 @@
 {
   "$schema": "https://raw.githubusercontent.com/modelcontext/vscode-mcp/main/schemas/mcp.schema.json",
   "projectType": "mcp-server",
-  "description": "MCP configuration for this project. Add or update fields as needed."
+  "description": "MCP configuration for this project. Add or update fields as needed.",
+  "servers": {
+    "github": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${env:GITHUB_TOKEN}"
+      }
+    }
+  }
 }

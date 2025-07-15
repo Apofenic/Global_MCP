@@ -3,13 +3,20 @@
     "filesystem-prompts": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "~/promptTemplates"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "~/Library/Application Support/Code/User/prompts/"
+      ],
       "env": {}
     },
     "github": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${env:GITHUB_TOKEN}"
       }
